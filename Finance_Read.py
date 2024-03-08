@@ -10,7 +10,7 @@ st.header('File Input')
 input_file = st.file_uploader("Upload an Excel File", type=["xls", "xlsx"])
 
 if input_file is not None:
-    df = pd.read_excel("/Users/CherieLou/Downloads/cmbi账单.xlsx",sheet_name='本期订单')
+    df = pd.read_excel(input_file,sheet_name='本期订单')
     df = df[['乘车人姓名','企业实付金额','实际出发地','实际目的地','用车备注','补充说明','开始计费时间','结束计费时间','下单时间']]
     df['开始计费时间'] = pd.to_datetime(df['开始计费时间'])
     df['结束计费时间'] = pd.to_datetime(df['结束计费时间'])
